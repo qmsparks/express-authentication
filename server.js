@@ -6,6 +6,7 @@ const flash = require('connect-flash');
 
 // ANCHOR internal imports
 const passport = require('./config/ppConfig');
+const isLoggedIn = require('./middleware/isLoggedIn');
 
 // ANCHOR instantiated modules
 const app = express();
