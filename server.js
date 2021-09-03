@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 // ANCHOR internal imports
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
+const ctrl = require('./controllers');
 
 // ANCHOR instantiated modules
 const app = express();
@@ -43,6 +44,8 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
   return res.render('index');
 })
+
+app.use('/auth', ctrl.auth);
 
 // ANCHOR listener
 const server = app.listen(PORT, () => {
