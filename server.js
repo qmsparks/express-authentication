@@ -45,6 +45,13 @@ app.get('/', (req, res) => {
   return res.render('index');
 })
 
+app.get('/profile', isLoggedIn, (req, res) => {
+  const {id, name, email} = req.user.get();
+
+  context = {id, name, email}
+  res.render('profile', context);
+})
+
 app.use('/auth', ctrl.auth);
 
 // ANCHOR listener
